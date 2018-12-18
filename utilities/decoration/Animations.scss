@@ -1,0 +1,14 @@
+
+
+@mixin animate-pop-in{
+  animation: animate-pop-in 1s 1 0s  cubic-bezier(1.000, 0.010, 0.150, 1.465) forwards;
+  animation-fill-mode: both;
+  @keyframes animate-pop-in{
+    0%{
+        transform: scale(0);
+        }
+    100%{
+        transform: rotate(xx) scale(1);
+        }
+  }
+}

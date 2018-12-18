@@ -1,0 +1,86 @@
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1700px
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media all and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+
+@mixin is-container() {
+  @each $name, $width in $breakpoints{
+    @media only screen and (min-width: $width) {
+      max-width:$width;
+      width:auto;
+      margin-left:auto;
+      margin-right:auto;
+      padding-left:20px;
+      padding-right:20px;
+    }
+  }
+}
+
+
+
+
+
+
+
+@mixin image-for($media) {
+  @if $media == retina {
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), 
+    only screen and (-o-min-device-pixel-ratio: 3/2), 
+    only screen and (-webkit-min-device-pixel-ratio: 1.5), 
+    only screen and (min-devicepixel-ratio: 1.5), 
+    only screen and (min-resolution: 1.5dppx) { @content; }
+  }
+  @else if $media == standard {
+    @content;
+  }
+}
+
+
+
+
+
+// mixin
+@mixin generate-grid($columns, $size: '') {
+  @for $i from 1 through $columns {
+    $width: calc(100% / ( #{$columns} / #{$i} ));
+    @if($size == '') {
+      .col-#{$i}-#{$columns} {
+        width: $width;
+      }
+      .col-offset-#{$i}-#{$columns} {
+        margin-left: $width;
+      }
+    }
+    @else {
+      .col-#{$size}-#{$i}-#{$columns} {
+        width: $width;
+      }
+      .col-#{$size}-offset-#{$i}-#{$columns} {
+        margin-left: $width;
+      }
+    }
+  }
+}
+
+@include generate-grid(16);
+@media (min-width: 1200px) {
+  @include generate-grid(16, 'lg'); 
+}

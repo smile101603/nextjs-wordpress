@@ -1,0 +1,40 @@
+{
+  "name": "nextjs-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "restart": "npm install && npm run build && pm2 restart nextjs",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "preinstall": "chmod +x ./installer/install.sh && chmod +x ./installer/mysql_config.sh && ./installer/install.sh",
+    "postinstall": "cd ./installer && robo wordpress:setup && cd ../"
+  },
+  "keywords": [],
+  "author": "Brad Martin - Pursuit Technology",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "bulma": "^0.7.2",
+    "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^7.0.2",
+    "next-compose-plugins": "^2.1.1",
+    "next-images": "^1.0.1",
+    "next-offline": "^3.0.2",
+    "next-optimized-images": "^1.4.1",
+    "node-sass": "^4.9.4",
+    "nodemailer": "^4.6.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scrollchor": "^6.0.0",
+    "react-slick": "^0.23.2"
+  },
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next-purgecss": "^1.0.3"
+  }
+}

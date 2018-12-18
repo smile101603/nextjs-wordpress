@@ -1,0 +1,23 @@
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+  .contact-us{
+    height:100%;
+    .content{
+      margin-top:0px;
+    }
+  }
+  .hero__container{
+    z-index:1000!important;
+    .process__image img{
+      width:1px;
+      min-width:100%;
+    }
+  }
+  .acorn-lms-hero{
+    .process{
+      width:1px;
+      min-width: 100%;
+    }
+  }
+}
+
+

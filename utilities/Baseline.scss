@@ -1,0 +1,57 @@
+@import './decoration/Reset.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Signika:400,700');
+
+
+body{
+  font-family: 'Signika', sans-serif;
+  color:#061828;
+}
+
+html.body{
+  overflow-x: hidden;
+  width:100%;
+  -webkit-overflow-scrolling: touch;
+}
+#__next{
+  overflow-x: hidden;
+  width:100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ui.button{
+  background:#13548F;
+  color:#fff;
+  padding: 15px;
+  padding-left:25px;
+  padding-right:25px;
+  display: inline-block;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover{
+    background:darken(#13548F,10%);
+  }
+  &:active{
+    background:darken(#13548F,20%);
+  }
+  &--inverted{
+    background:#fff;
+    color:#13548F;
+    &:hover{
+      background:darken(#fff,10%);
+    }
+    &:active{
+      background:darken(#fff,20%);
+    }
+  }
+}
+
+
+@import './decoration/Indicators.scss';
+
+
+
+@import './x-browser/Internet-Explorer.scss';

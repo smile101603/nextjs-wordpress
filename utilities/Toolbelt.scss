@@ -1,0 +1,20 @@
+
+/* Toolbelt can be imported into any .scss without adding 
+any extra bloat and will provide utility functions to those files */
+@import './Variable.scss';
+@import './decoration/Media-Queries.scss';
+@import './decoration/Animations.scss';
+
+
+@function rem($size) {
+  $remSize: $size / 16px;
+//Default font size on html element is 100%, equivalent to 16px;
+  @return #{$remSize}rem;
+}
+
+@mixin section-buffer() {
+  margin-top:rem(180px);
+  @include mq('phone','max'){
+    margin-top:rem(100px);
+  }
+}

@@ -1,0 +1,24 @@
+@import '../Variable.scss';
+
+@mixin rem($px: 16, $base: 16) {
+  font-size: $px + px;
+  font-size: ($px / $base) * 1rem;
+}
+@mixin px($rem: 1, $base: 16) {
+  font-size: $rem + px;
+  font-size: ($rem / $base) * 1rem;
+}
+
+@mixin imgRetina($image, $extension, $width, $height) {
+  background: url($image + '.' + $extension) no-repeat;
+  width: $width;
+  height: $height;
+  @media (min--moz-device-pixel-ratio: 1.3),
+        (-o-min-device-pixel-ratio: 2.6/2),
+        (-webkit-min-device-pixel-ratio: 1.3),
+        (min-device-pixel-ratio: 1.3),
+        (min-resolution: 1.3dppx) {     
+             background-image: url($image + '-2x' + '.' + $extension) no-repeat;
+             background-size: $width $height;
+  }
+}
